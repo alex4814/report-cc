@@ -47,9 +47,15 @@ The major data models adopted we are going to investigate are Wide Column Store 
 \paragraph*{Column Family Store}
 Columnar databases are logically similar to tabular databases. The difference is that the data are  column-wise stored and retrieved.
 
-(BigTable)
+Bigtable\citep{Chang2006} is a sparse, distributed, persistent multidimensional sorted map introduced by Google. The map is indexed by a row key, column key, and a timestamp; each value in the map is an uninterpreted array of bytes.
 
-Casandra comes under column family. It is designed to process the data which are spread across different servers without a single point failure. Columns in Cassandra are grouped together very much similar to what happens in the BigTable\citep{Chang2006} system. Cassandra\citep{LakshamAvinash2010} exposes two kinds of columns families, \textit{Simple} and \textit{Super} column families. Super column families can be visualized as a column family within a column family. Casandra also allows columns to be sorted either by time or by name, which is often exploited by different applications.
+\[ (row:string, column:string, time:int64) \rightarrow string \]
+
+Bigtable does not support a full relational data model; instead, it provides clients with a simple data model that supports dynamic control over data layout and format, and allows clients to reason about the locality properties of the data represented in the underlying storage. Data is indexed using row and column names that can be arbitrary strings. 
+
+The row keys in a table are arbitrary strings. Bigtable maintains data in lexicographic order by row key. The row range for a table is dynamically partitioned. Each row range is called a tablet, which is the unit of distribution and load balancing.Column keys are grouped into sets called column families, which form the basic unit of access control. A column family must be created before data can be stored under any column key in that family; after a family has been created, any column key within the family can be used. A column key is named using the following syntax: family:qualifier.Each cell in a Bigtable can contain multiple versions of the same data; these versions are indexed by timestamp.
+
+Casandra comes under column family. It is designed to process the data which are spread across different servers without a single point failure. Columns in Cassandra are grouped together very much similar to what happens in the Bigtable system. Cassandra\citep{LakshamAvinash2010} exposes two kinds of columns families, \textit{Simple} and \textit{Super} column families. Super column families can be visualized as a column family within a column family. Casandra also allows columns to be sorted either by time or by name, which is often exploited by different applications.
 
 \paragraph*{Document Store}
 A document-oriented database eschews the table-based relational database structure. MongoDB is the well-known member of the family. In general, it stores business subjects in the minimal number of documents instead of breaking it up into relational structures\citep{Hoberman2014} in favor of JSON-like formats with dynamic schemas.\citep{Suter2012} This flexibility facilitates the mapping of documents to an entity or an object in MongoDB, in which there are two tools to allow applications to represent relationships between data: \textit{references} and \textit{embedded documents}.\citep{MongoDBInc.2009}
@@ -76,7 +82,7 @@ Due to huge amount of data across applications, it needs to partition the data t
 \paragraph*{Sharding}
 Sharding is a method for storing data across multiple machines. (http://docs.mongodb.org/manual/core/sharding-introduction/)
 
-Another feature supported by MongoDB is automatic sharding [7]. Using this feature the data can be partitioned over multiple nodes. The administrator only has to define a sharding key for each collection which defines how to partition the contained docu- ments. In such an environment, the clients connect to a special master node called mongos process which analyses the query and redirects it to the appropriate node or nodes. To avoid data losses, every logical node can consist of multiple physical servers which act as a replica set. Using this node infra- structure it is also possible to use Map/Reduce [8] to work on the available data set having a very good performance.
+Another feature supported by MongoDB is automatic sharding [7]. Using this feature the data can be partitioned over multiple nodes. The administrator only has to define a sharding key for each collection which defines how to partition the contained documents. In such an environment, the clients connect to a special master node called mongos process which analyses the query and redirects it to the appropriate node or nodes. To avoid data losses, every logical node can consist of multiple physical servers which act as a replica set. Using this node infra- structure it is also possible to use Map/Reduce [8] to work on the available data set having a very good performance.
 
 \paragraph*{Range}
 What range partition does is to order records lexicographically based on keys and divide it according to the ordering result.
