@@ -69,15 +69,17 @@ As server downtime implies lost revenue, high availability is the key factor to 
 \paragraph*{Replication}
 Replication is one way to ensure consistency between redundant resources, to improve reliability, fault-tolerance, or accessibility. 
 
-
 There are two types of replication supported in MongoDB: \textit{master-slave} and \textit{replica sets}.\citep{Suter2012} The latter works the same as the former, except that it is possible to elect a new master if the original master went down.
 
-\paragraph*{Load Balancing} 
+Unlike HBase, Cassandra uses a coordinator node in charge of the replication of the data items and locally stores each key within its range. It also provides three replication policies: \textit{Rack Unaware}, \textit{Rack Aware}, and \textit{Datacenter Aware}. For ``Rack Unaware'' replication strategy, the con-coordinator replicas are chosen by picking certain amount of successors\footnote{Rigorously, $N-1$ replicas are picked where $N$ is the replication factor.} of the coordinator on the ring. The rest two strategies involve a leader node elected by Zookeeper.\citep{Hunt2010}
 
 \paragraph*{Failure Detection}
+Failure detection is a mechanism by which a node can locally determine if any other node in the system is up or down. It is vital to support cluster membership.
+
+In Cassandra, a modified version of the $\Phi$ Accrual Failure Detector is used. The main idea of the detector is to emit a value representing a suspicion level, rather than a boolean value, for each of monitored nodes. All that the value $\Phi$ conveys is the likelihood that we will make a mistake. \citep{LakshamAvinash2010} also claims that AFD is good in both accuracy and speed and adjust well to network or load conditions.
 
 \subsection{Partition}
-Due to huge amount of data across applications, it needs to partition the data to distribute it over a cluster. There are two main approaches for partitioning: \textit{sharding}, \textit{range partition} and \textit{hash partition}. The ability to dynamically partition the data over nodes ensures scaling incrementally. 
+Due to huge amount of data across applications, it needs to partition the data to distribute it over a cluster. There are three main approaches for partitioning: \textit{sharding}, \textit{range partition} and \textit{hash partition}. The ability to dynamically partition the data over nodes ensures scaling incrementally. 
 
 \paragraph*{Sharding}
 Sharding is a method for storing data across multiple machines. (http://docs.mongodb.org/manual/core/sharding-introduction/)
@@ -92,33 +94,41 @@ By hashing, we mean that hash records based on key to a linear space and then di
 
 Cassandra partitions data across the cluster using \textit{consistent hashing} but uses an order preserving hash function to do so. In \citep{LakshamAvinash2010}, it points out the challenges (non-uniform data and load distribution) the basic consistent hashing algorithm\citep{Karger1997} is facing, and adopt the latter of two suggested ways in \citep{Stoica2003} to address these issues, because it makes the design and implementation tractable and helps to make choices about load balancing.
 
-
-
 \subsection{Consistency}
 
+The Cassandra system relies on the local file system for data persistence. Typical write operation involves a write into a commit log for durability and recoverability and an update into an in-memory data structure. The write into the in-memory data structure is performed only after a successful write into the commit log.
+
+Over time many such files could exist on disk and a merge process runs in the background to collate the dif- ferent files into one file. This process is very similar to the compaction process that happens in the   ****Bigtable system****.
+pro
+We have a dedicated disk on each machine for the commit log since all writes into the commit log are sequential and so we can maximize disk throughput.
+
 \section{Performance}
+
+Cassandra:
+
+There are two kinds of search fea- tures that are enabled today (a) term search (b) interactions - given the name of a person return all messages that the user might have ever sent or received from that person.
+
+In order to make the searches fast Cassandra provides certain hooks for intelligent caching of data.
+
+result
+very good
 
 \section{Conclusion}
 CAP consistency, availability, partition
 only 2 of 3
 
+comment:
+It really depends on the needs of your application. For web applications that have light querying, key/value stores are very useful. For enterprise databases where reporting is typically very heavy, relational databases fit better. 
+
+
+cassandra:
+
+We have built, implemented, and operated a storage sys- tem providing scalability, high performance, and wide appli- cability. We have empirically demonstrated that Cassandra can support a very high update throughput while deliver- ing low latency. Future works involves adding compression, ability to support atomicity across keys and secondary index support.
+
+
 \subsection{Drawback}
 Transactions are not directly supported by MongoDB. Though there are two workarounds: atomic operations and two-phase commits. Atomic operations allow performing multiple operations in one call. An example is findAndModify [9] or the inc [10] operator used in updates.
 There are several other limitations. For example, if you use the 32-bit version of MongoDB the data set is limited to a size of 2.5 gigabytes [11]. MongoDB does not support full single server durability which means you need multiple replications to avoid data losses if one server suffers a power loss or crash [12]. Another drawback is the fact that it uses much more storage space for the same data then for example PostgreSQL. Because – as opposed to relational databases – every document can have different keys [13] the whole document has to be stored, not only the values. That’s why it is recommended to use short key names.
-
-\section*{Help}
-\subsection*{2}
-What reporting verbs should I use?
-Avoid over-using "states" and "says". You may need to use tentative or evaluative verbs.
-• Tentative verbs are often used to show that findings are incomplete or difficult to generalise from.
-e.g. Research suggests that a majority of people prefer email to... (Mahlab 1995). Wang (2003) indicates that such results are not necessarily...
-• Evaluative verbs can pack in extra meaning by incorporating your evaluation of the text. e.g. Jacob concedes that the test is not 100 per cent reliable.
-This is much stronger than "Jacob states that... " since concedes includes the judgement that Jacob was reluctant to make the acknowledgement.
-Some other strong reporting words are:
-describe, contend, examine, assert, dispute, claim, purport, persuade, refute, concur, recommend, object, dismiss, contradict, propose, examine, observe
-
-\subsection*{3}
-It really depends on the needs of your application. For web applications that have light querying, key/value stores are very useful. For enterprise databases where reporting is typically very heavy, relational databases fit better. I cannot really comment on systems like Cache as I have not used them.
 
 \bibliography{refs}
 

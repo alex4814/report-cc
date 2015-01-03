@@ -1,95 +1,14 @@
-@misc{Bain2009,
-author = {Bain, Tony},
-title = {{Is the Relational Database Doomed?}},
-url = {http://readwrite.com/2009/02/12/is-the-relational-database-doomed},
-year = {2009}
-}
-@inproceedings{Chang2006,
-abstract = {Bigtable is a distributed storage system for managing structured data that is designed to scale to a very large size: petabytes of data across thousands of commodity servers. Many projects at Google store data in Bigtable, including web indexing, Google Earth, and Google Fi- nance. These applications place very different demands on Bigtable, both in terms of data size (from URLs to web pages to satellite imagery) and latency requirements (from backend bulk processing to real-time data serving). Despite these varied demands, Bigtable has successfully provided a flexible, high-performance solution for all of these Google products. In this paper we describe the sim- ple data model provided by Bigtable, which gives clients dynamic control over data layout and format, and we de- scribe the design and implementation of Bigtable.},
-author = {Chang, Fay and Dean, Jeffrey and Ghemawat, Sanjay and Hsieh, Wilson C. and Wallach, Deborah A. and Burrows, Mike and Chandra, Tushar and Fikes, Andrew and Gruber, Robert E.},
-booktitle = {7th Symposium on Operating Systems Design and Implementation (OSDI '06), November 6-8, Seattle, WA, USA},
-doi = {10.1145/1365815.1365816},
-isbn = {1-931971-47-1},
-issn = {07342071},
-pages = {205--218},
-title = {{Bigtable: A distributed storage system for structured data}},
-url = {http://research.google.com/archive/bigtable-osdi06.pdf},
-year = {2006}
-}
-@inproceedings{DeCandia2007,
-abstract = {Reliability at massive scale is one of the biggest challenges we face at Amazon.com, one of the largest e-commerce operations in the world; even the slightest outage has significant financial consequences and impacts customer trust. The Amazon.com platform, which provides services for many web sites worldwide, is implemented on top of an infrastructure of tens of thousands of servers and network components located in many datacenters around the world. At this scale, small and large components fail continuously and the way persistent state is managed in the face of these failures drives the reliability and scalability of the software systems. This paper presents the design and implementation of Dynamo, a highly available key-value storage system that some of Amazon's core services use to provide an "always-on" experience. To achieve this level of availability, Dynamo sacrifices consistency under certain failure scenarios. It makes extensive use of object versioning and application-assisted conflict resolution in a manner that provides a novel interface for developers to use.},
-author = {DeCandia, Giuseppe and Hastorun, Deniz and Jampani, Madan and Kakulapati, Gunavardhan and Lakshman, Avinash and Pilchin, Alex and Sivasubramanian, Swaminathan and Vosshall, Peter and Vogels, Werner},
-booktitle = {Proceedings of twenty-first ACM SIGOPS symposium on Operating systems principles},
-doi = {10.1145/1323293.1294281},
-isbn = {9781595935915},
-issn = {0163-5980},
-pages = {205--220},
-title = {{Dynamo: Amazon’s Highly Available Key-value Store}},
-url = {http://portal.acm.org/citation.cfm?doid=1323293.1294281},
-volume = {41},
-year = {2007}
-}
-@book{Hoberman2014,
-author = {Hoberman, Steve},
-publisher = {Technics Publ.},
-title = {{Data Modeling for MongoDB}},
-year = {2014}
-}
-@inproceedings{Karger1997,
-abstract = {Wedescribe a family of caching protocols for distrib-uted networks that can be used to decrease or eliminate the occurrence of hot spots in the network. Our protocols are particularly designed for use with very large networks such as the Internet, where delays caused by hot spots can be severe, and where it is not feasible for every server to have complete information about the current state of the entire network. The protocols are easy to implement using existing network protocols such as TCP/fF’,and require very little overhead. The protocols work with local control, make efficient use of existing resources, and scale gracefully as the network grows. Our caching protocols are based on a special kind of hashing that we call consistent hashing. Roughly speaking, a consistent hash function is one which changes nr.inimaflyas the range of the function changes. Through the development of good consistent hash functions, we are able to develop caching protocols which do not require users to have a current or even consistent view of the network. We believe that consistent hash functions may eventually prove to be useful in other applications such as distributed name servers and/or quorum systems.},
-author = {Karger, David and Leightonl, Tom and Lewinl, Daniel and Lehman, Eric and Leighton, Tom and Panigrahy, Rina and Levine, Matthew and Lewin, Daniel},
-booktitle = {STOC '97: Proceedings of the twenty-ninth annual ACM symposium on Theory of computing},
-doi = {doi: 10.1145/258533.258660},
-isbn = {0-89791-888-6},
-issn = {0012821X},
-keywords = {data-partitioning,data-placement,dht,distributed-systems},
-pages = {654--663},
-title = {{Consistent hashing and random trees: distributed caching protocols for relieving hot spots on the World Wide Web}},
-year = {1997}
-}
-@misc{LakshamAvinash2010,
-abstract = {Cassandra is a distributed storage system for managing very large amounts of structured data spread out across many commodity servers, while providing highly available service with no single point of failure. Cassandra aims to run on top of an infrastructure of hundreds of nodes (possibly spread across di erent data centers). At this scale, small and large components fail continuously. The way Cassandra manages the persistent state in the face of these failures drives the reliability and scalability of the software systems relying on this service. While in many ways Cassandra resembles a database and shares many design and implementation strategies therewith, Cassandra does not support a full relational data model; instead, it provides clients with a simple data model that supports dynamic control over data layout and format. Cassandra system was designed to run on cheap commodity hardware and handle high write throughput while not sacri cing read eciency.},
-author = {{Laksham Avinash} and {Prashant Malik}},
-booktitle = {ACM SIGOPS Operating Systems Review},
-doi = {10.1145/1773912.1773922},
-isbn = {9781605583969},
-issn = {01635980},
-pages = {1--6},
-title = {{Cassandra: a decentralized structured storage system}},
-url = {http://dl.acm.org/citation.cfm?id=1773922},
+@article{Hunt2010,
+abstract = {In this paper, we describe ZooKeeper, a service for coordinating processes of distributed applications. Since ZooKeeper is part of critical infrastructure, ZooKeeper aims to provide a simple and high performance kernel for building more complex coordination primitives at the client. It incorporates elements from group messaging, shared registers, and distributed lock services in a replicated, centralized service. The interface exposed by ZooKeeper has the wait-free aspects of shared registers with an event-driven mechanism similar to cache invalidations of distributed file systems to provide a simple, yet powerful coordination service. The ZooKeeper interface enables a high-performance service implementation. In addition to the wait-free property, ZooKeeper provides a per client guarantee of FIFO execution of requests and linearizability for all requests that change the ZooKeeper state. These design decisions enable the implementation of a high performance processing pipeline with read requests being satisfied by local servers. We show for the target workloads, 2:1 to 100:1 read to write ratio, that ZooKeeper can handle tens to hundreds of thousands of transactions per second. This performance allows ZooKeeper to be used extensively by client applications.},
+author = {Hunt, Patrick and Konar, Mahadev and Junqueira, FP and Reed, Benjamin},
+isbn = {9781450325530},
+issn = {0210945x},
+journal = {USENIX Annual Technical \ldots},
+pages = {11--11},
+title = {{ZooKeeper: Wait-free Coordination for Internet-scale Systems.}},
+url = {http://portal.acm.org/citation.cfm?id=1855851$\backslash$nhttps://www.usenix.org/event/usenix10/tech/full\_papers/Hunt.pdf},
+volume = {8},
 year = {2010}
-}
-@inproceedings{Melnik2010,
-abstract = {Dremel is a scalable, interactive ad-hoc query system for analysis of read-only nested data. By combining multi-level execution trees and columnar data layout, it is capable of running aggregation queries over trillion-row tables in seconds. The system scales to thousands of CPUs and petabytes of data, and has thousands of users at Google. In this paper, we describe the architecture and implementation of Dremel, and explain how it complements MapReduce-based computing. We present a novel columnar storage representation for nested records and discuss experiments on few-thousand node instances of the system.},
-author = {Melnik, Sergey and Gubarev, Andrey and Long, Jing Jing and Romer, Geoffrey and Shivakumar, Shiva and Tolton, Matt and Vassilakis, Theo},
-booktitle = {36th International Conference on Very Large Data Bases},
-doi = {10.1145/1953122.1953148},
-isbn = {2150-8097},
-issn = {00010782},
-pages = {330--339},
-pmid = {17548183},
-title = {{Dremel: Interactive Analysis of Web-Scale Datasets}},
-url = {http://www.vldb2010.org/accept.htm},
-year = {2010}
-}
-@misc{MongoDBInc.2009,
-author = {{MongoDB Inc.}},
-title = {{Data Modeling Introduction}},
-url = {http://docs.mongodb.org/manual/core/data-modeling-introduction/},
-year = {2009}
-}
-@article{Silberstein2008,
-abstract = {We describe PNUTS, a massively parallel and geographically distributed database system for Yahoo!’s web applications. PNUTS provides data storage organized as hashed or ordered tables, low latency for large numbers of concurrent requests including updates and queries, and novel per-record consistency guarantees. It is a hosted, centrally managed, and geographically distributed service, and utilizes automated load-balancing and failover to reduce operational complexity. The first version of the system is currently serving in production. We describe the motivation for PNUTS and the design and implementation of its table storage and replication layers, and then present experimental results.},
-author = {Silberstein, Adam and Cooper, Brian F. and Srivastava, Utkarsh and Vee, Erik and Yerneni, Ramana and Ramakrishnan, Raghu},
-doi = {10.1145/1376616.1376693},
-isbn = {9781605581026},
-issn = {21508097},
-journal = {Proceedings of the 2008 ACM SIGMOD international conference on Management of data  - SIGMOD '08},
-keywords = {Management of data,SIGMOD '08},
-pages = {765},
-title = {{PNUTS: Yahoo!'s Hosted Data Serving PLatform}},
-url = {http://portal.acm.org/citation.cfm?doid=1376616.1376693},
-year = {2008}
 }
 @article{Stoica2003,
 abstract = { A fundamental problem that confronts peer-to-peer applications is the efficient location of the node that stores a desired data item. This paper presents Chord, a distributed lookup protocol that addresses this problem. Chord provides support for just one operation: given a key, it maps the key onto a node. Data location can be easily implemented on top of Chord by associating a key with each data item, and storing the key/data pair at the node to which the key maps. Chord adapts efficiently as nodes join and leave the system, and can answer queries even if the system is continuously changing. Results from theoretical analysis and simulations show that Chord is scalable: Communication cost and the state maintained by each node scale logarithmically with the number of Chord nodes.},
@@ -105,11 +24,35 @@ title = {{Chord: A scalable peer-to-peer lookup protocol for Internet applicatio
 volume = {11},
 year = {2003}
 }
+@inproceedings{Karger1997,
+abstract = {Wedescribe a family of caching protocols for distrib-uted networks that can be used to decrease or eliminate the occurrence of hot spots in the network. Our protocols are particularly designed for use with very large networks such as the Internet, where delays caused by hot spots can be severe, and where it is not feasible for every server to have complete information about the current state of the entire network. The protocols are easy to implement using existing network protocols such as TCP/fF’,and require very little overhead. The protocols work with local control, make efficient use of existing resources, and scale gracefully as the network grows. Our caching protocols are based on a special kind of hashing that we call consistent hashing. Roughly speaking, a consistent hash function is one which changes nr.inimaflyas the range of the function changes. Through the development of good consistent hash functions, we are able to develop caching protocols which do not require users to have a current or even consistent view of the network. We believe that consistent hash functions may eventually prove to be useful in other applications such as distributed name servers and/or quorum systems.},
+author = {Karger, David and Leightonl, Tom and Lewinl, Daniel and Lehman, Eric and Leighton, Tom and Panigrahy, Rina and Levine, Matthew and Lewin, Daniel},
+booktitle = {STOC '97: Proceedings of the twenty-ninth annual ACM symposium on Theory of computing},
+doi = {doi: 10.1145/258533.258660},
+isbn = {0-89791-888-6},
+issn = {0012821X},
+keywords = {data-partitioning,data-placement,dht,distributed-systems},
+pages = {654--663},
+title = {{Consistent hashing and random trees: distributed caching protocols for relieving hot spots on the World Wide Web}},
+year = {1997}
+}
 @inproceedings{Suter2012,
 author = {Suter, Rico},
 booktitle = {Seminar Thesis, Rapperswil},
 title = {{MongoDB: An Introduction and performance Analysis}},
 year = {2012}
+}
+@misc{MongoDBInc.2009,
+author = {{MongoDB Inc.}},
+title = {{Data Modeling Introduction}},
+url = {http://docs.mongodb.org/manual/core/data-modeling-introduction/},
+year = {2009}
+}
+@book{Hoberman2014,
+author = {Hoberman, Steve},
+publisher = {Technics Publ.},
+title = {{Data Modeling for MongoDB}},
+year = {2014}
 }
 @misc{Unknown2012,
 abstract = {NoSQL DEFINITION: Next Generation Databases mostly addressing some of the points: being non-relational, distributed, open-source and horizontally scalable.},
@@ -119,4 +62,73 @@ isbn = {1101010101011},
 title = {{NOSQL Databases}},
 url = {http://nosql-database.org/},
 year = {2012}
+}
+@misc{Bain2009,
+author = {Bain, Tony},
+title = {{Is the Relational Database Doomed?}},
+url = {http://readwrite.com/2009/02/12/is-the-relational-database-doomed},
+year = {2009}
+}
+@inproceedings{DeCandia2007,
+abstract = {Reliability at massive scale is one of the biggest challenges we face at Amazon.com, one of the largest e-commerce operations in the world; even the slightest outage has significant financial consequences and impacts customer trust. The Amazon.com platform, which provides services for many web sites worldwide, is implemented on top of an infrastructure of tens of thousands of servers and network components located in many datacenters around the world. At this scale, small and large components fail continuously and the way persistent state is managed in the face of these failures drives the reliability and scalability of the software systems. This paper presents the design and implementation of Dynamo, a highly available key-value storage system that some of Amazon's core services use to provide an "always-on" experience. To achieve this level of availability, Dynamo sacrifices consistency under certain failure scenarios. It makes extensive use of object versioning and application-assisted conflict resolution in a manner that provides a novel interface for developers to use.},
+author = {DeCandia, Giuseppe and Hastorun, Deniz and Jampani, Madan and Kakulapati, Gunavardhan and Lakshman, Avinash and Pilchin, Alex and Sivasubramanian, Swaminathan and Vosshall, Peter and Vogels, Werner},
+booktitle = {Proceedings of twenty-first ACM SIGOPS symposium on Operating systems principles},
+doi = {10.1145/1323293.1294281},
+isbn = {9781595935915},
+issn = {0163-5980},
+pages = {205--220},
+title = {{Dynamo: Amazon’s Highly Available Key-value Store}},
+url = {http://portal.acm.org/citation.cfm?doid=1323293.1294281},
+volume = {41},
+year = {2007}
+}
+@inproceedings{Melnik2010,
+abstract = {Dremel is a scalable, interactive ad-hoc query system for analysis of read-only nested data. By combining multi-level execution trees and columnar data layout, it is capable of running aggregation queries over trillion-row tables in seconds. The system scales to thousands of CPUs and petabytes of data, and has thousands of users at Google. In this paper, we describe the architecture and implementation of Dremel, and explain how it complements MapReduce-based computing. We present a novel columnar storage representation for nested records and discuss experiments on few-thousand node instances of the system.},
+author = {Melnik, Sergey and Gubarev, Andrey and Long, Jing Jing and Romer, Geoffrey and Shivakumar, Shiva and Tolton, Matt and Vassilakis, Theo},
+booktitle = {36th International Conference on Very Large Data Bases},
+doi = {10.1145/1953122.1953148},
+isbn = {2150-8097},
+issn = {00010782},
+pages = {330--339},
+pmid = {17548183},
+title = {{Dremel: Interactive Analysis of Web-Scale Datasets}},
+url = {http://www.vldb2010.org/accept.htm},
+year = {2010}
+}
+@article{Silberstein2008,
+abstract = {We describe PNUTS, a massively parallel and geographically distributed database system for Yahoo!’s web applications. PNUTS provides data storage organized as hashed or ordered tables, low latency for large numbers of concurrent requests including updates and queries, and novel per-record consistency guarantees. It is a hosted, centrally managed, and geographically distributed service, and utilizes automated load-balancing and failover to reduce operational complexity. The first version of the system is currently serving in production. We describe the motivation for PNUTS and the design and implementation of its table storage and replication layers, and then present experimental results.},
+author = {Silberstein, Adam and Cooper, Brian F. and Srivastava, Utkarsh and Vee, Erik and Yerneni, Ramana and Ramakrishnan, Raghu},
+doi = {10.1145/1376616.1376693},
+isbn = {9781605581026},
+issn = {21508097},
+journal = {Proceedings of the 2008 ACM SIGMOD international conference on Management of data  - SIGMOD '08},
+keywords = {Management of data,SIGMOD '08},
+pages = {765},
+title = {{PNUTS: Yahoo!'s Hosted Data Serving PLatform}},
+url = {http://portal.acm.org/citation.cfm?doid=1376616.1376693},
+year = {2008}
+}
+@inproceedings{Chang2006,
+abstract = {Bigtable is a distributed storage system for managing structured data that is designed to scale to a very large size: petabytes of data across thousands of commodity servers. Many projects at Google store data in Bigtable, including web indexing, Google Earth, and Google Fi- nance. These applications place very different demands on Bigtable, both in terms of data size (from URLs to web pages to satellite imagery) and latency requirements (from backend bulk processing to real-time data serving). Despite these varied demands, Bigtable has successfully provided a flexible, high-performance solution for all of these Google products. In this paper we describe the sim- ple data model provided by Bigtable, which gives clients dynamic control over data layout and format, and we de- scribe the design and implementation of Bigtable.},
+author = {Chang, Fay and Dean, Jeffrey and Ghemawat, Sanjay and Hsieh, Wilson C. and Wallach, Deborah A. and Burrows, Mike and Chandra, Tushar and Fikes, Andrew and Gruber, Robert E.},
+booktitle = {7th Symposium on Operating Systems Design and Implementation (OSDI '06), November 6-8, Seattle, WA, USA},
+doi = {10.1145/1365815.1365816},
+isbn = {1-931971-47-1},
+issn = {07342071},
+pages = {205--218},
+title = {{Bigtable: A distributed storage system for structured data}},
+url = {http://research.google.com/archive/bigtable-osdi06.pdf},
+year = {2006}
+}
+@misc{LakshamAvinash2010,
+abstract = {Cassandra is a distributed storage system for managing very large amounts of structured data spread out across many commodity servers, while providing highly available service with no single point of failure. Cassandra aims to run on top of an infrastructure of hundreds of nodes (possibly spread across di erent data centers). At this scale, small and large components fail continuously. The way Cassandra manages the persistent state in the face of these failures drives the reliability and scalability of the software systems relying on this service. While in many ways Cassandra resembles a database and shares many design and implementation strategies therewith, Cassandra does not support a full relational data model; instead, it provides clients with a simple data model that supports dynamic control over data layout and format. Cassandra system was designed to run on cheap commodity hardware and handle high write throughput while not sacri cing read eciency.},
+author = {{Laksham Avinash} and {Prashant Malik}},
+booktitle = {ACM SIGOPS Operating Systems Review},
+doi = {10.1145/1773912.1773922},
+isbn = {9781605583969},
+issn = {01635980},
+pages = {1--6},
+title = {{Cassandra: a decentralized structured storage system}},
+url = {http://dl.acm.org/citation.cfm?id=1773922},
+year = {2010}
 }
