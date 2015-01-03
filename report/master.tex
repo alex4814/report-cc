@@ -6,10 +6,12 @@
 \usepackage{graphicx}
 
 \usepackage{hyperref}
+\hypersetup{colorlinks=true}
+
 \usepackage[numbers,sort&compress]{natbib}
 \usepackage{hypernat}
 
-\bibliographystyle{plain}
+\bibliographystyle{plainurl}
 
 \author{Ruisheng Fu\\21421190\\CCNT Lab.
 \and
@@ -24,19 +26,51 @@ Chen Sui\\21421183}
 \tableofcontents
 
 \begin{abstract}
-A lot of changes in database management system has been made since the inception of cloud computing. Such critical and increasing needs within cloud computing as scalability, elasticity and  processing a huge amount of data can be fulfilled by the NoSQL databases as opposed to RDBMS\footnote{Relational Database Management System}. In this report we have dived into several primary NoSQL databases used in leading cloud computing vendors, summarizing and discussing detailed techniques as well as analysis with comparisons.
+A lot of changes in database management system has been made since the inception of cloud computing. Such critical and increasing needs within cloud computing as scalability, elasticity and  processing a huge amount of data can be fulfilled by the NoSQL databases as opposed to RDBMS\footnote{Relational Database Management System}. In this report we have dived into several primary NoSQL databases used in leading cloud vendors, summarizing and discussing detailed techniques as well as analysis with comparisons.
 \end{abstract}
 
 \section{Introduction}
-Cloud computing has been a evolving computing terminology that is very much in the public eye. It is responsible for managing and grouping remote servers that allow data storage and online access to various services. 
+Cloud computing has been a evolving computing terminology that is very much in the public eye. It is its responsibility to manage and group remote servers that allow data storage and online access to various services. 
+
+In the field of computing, the various advancements and aspects are key evidences that explain the reason why higher priorities are given to scalability, resource utilization and power savings, with respect to data storage, rather than consistency. The traditional RDBMSs offer functionalities like clustering, synchronization (always consistent), load balancing and structured querying. However, what classical RDBMS could not do so well is to scale\footnote{Scaling, in a google sense, means that an application runs on small commodity PC hardware, but supports essentially unbounded load as more PC’s are added. } to heavy workloads compared to NoSQL databases. As non-relational databases have cropped up both inside and outside the cloud, there comes heated debate around SQL and NoSQL.\citep{Bain2009}
+
+The two solutions, manual sharding and caching,(cite) applied to classical SQL databases are not adequate enough to cope up with the modern web applications, thus agility can't be achieved. On the contrary, NoSQL databases is designed to handle such sort of problems. In those applications where high availability, speed, fault tolerance or consistency are needed, NoSQL is the choice, in that it is designed to scale out, to provide elasticity and to be highly available. The misleading term \textit{NoSQL} should be seen as the definition\citep{Unknown2012} that is "Next Generation Databases mostly addressing some of the points: being non-relational, distributed, open-source and horizontally scalable", and is mostly translated with "Not only SQL".
+
+In this report, we firstly examine several major NoSQL databases implemented and used in cloud vendors like Google, Amazon, and Yahoo, along with description about the main ideas of each design. Afterwards, analysis towards different NoSQL databases and we present benchmarking of top NoSQL as a visualizing comparison. Finally, a brief summarization is included in conclusion and further studies as well as challenges is discussed.
+
+\section{Major Stream}
+Currently there are approximately 150 NoSQL databases categorized by data models into a bunch of classes.\citep{Unknown2012} We review certain amount of prevailing NoSQL databases through several aspects, including data model, partitions, availability, and consistency.
+
+\subsection{Data Model}
+The major data models adopted we are going to investigate are Wide Column Store (Column Families), Document Store, and Key Value Store, whereas the minor ones (Graph Databases, Object Databases, etc.) are beyond our scope of discussion in this report.
+
+\paragraph*{Column Family Store}
+Columnar databases are almost like tabular databases. The difference is that the data are stored and retrieved column-wise unlike traditional RDBMS.
+Apache Cassandra: Casandra comes under column family. This database is designed to process the data which  are spread across different servers without a single point failure. It is used by many companies such as digg, Cisco , eBay etc,.
+
+\paragraph*{Document Store}
+A document-oriented database eschews the table-based relational database structure. MongoDB is one of them. It stores business subjects in the minimal number of documents instead of breaking it up into relational structures\citep{Hoberman2014} in favor of JSON-like formats with dynamic schemas.\citep{Suter2012} This flexibility facilitates the mapping of documents to an entity or an object in MongoDB, in which there are two tools to allow applications to represent relationships between data: references and embedded documents.\citep{MongoDBInc.2009}
+
+\paragraph*{Key Value Store}
 
 
-\section{Main Research Streams}
+
+\subsection{Availability}
+\paragraph*{replication} 
+\paragraph*{load balancing} 
+
+\subsection{Partition}
+
+\subsection{Consistency}
+
+\section{Performance}
 
 \section{Conclusion}
-ddf.\cite{Chang2006}
-\section{Help}
-\subsection{1}
+CAP consistency, availability, partition
+only 2 of 3
+
+\section*{Help}
+\subsection*{1}
 Linking words are important. If you are grouping together writers with similar opinions, you would use words or phrases such as:
 
 similarly, in addition, also, again
@@ -46,7 +80,8 @@ More importantly, if there is disagreement, you need to indicate clearly that yo
 however, on the other hand, conversely, nevertheless
 
 At the end of the review you should include a summary of what the literature implies, which again links to your hypothesis or main question.
-\subsection{2}
+
+\subsection*{2}
 What reporting verbs should I use?
 Avoid over-using "states" and "says". You may need to use tentative or evaluative verbs.
 • Tentative verbs are often used to show that findings are incomplete or difficult to generalise from.
@@ -55,6 +90,12 @@ e.g. Research suggests that a majority of people prefer email to... (Mahlab 1995
 This is much stronger than "Jacob states that... " since concedes includes the judgement that Jacob was reluctant to make the acknowledgement.
 Some other strong reporting words are:
 describe, contend, examine, assert, dispute, claim, purport, persuade, refute, concur, recommend, object, dismiss, contradict, propose, examine, observe
+
+\subsection*{3}
+It really depends on the needs of your application. For web applications that have light querying, key/value stores are very useful. For enterprise databases where reporting is typically very heavy, relational databases fit better. I cannot really comment on systems like Cache as I have not used them.
+
+
+For example, instead of storing title and author information in two distinct relational structures, title, author, and other title-related information can all be stored in a single document called Book, which is much more intuitive and usually easier to work with.
 \bibliography{refs}
 
 \end{document}

@@ -1,3 +1,9 @@
+@misc{Bain2009,
+author = {Bain, Tony},
+title = {{Is the Relational Database Doomed?}},
+url = {http://readwrite.com/2009/02/12/is-the-relational-database-doomed},
+year = {2009}
+}
 @inproceedings{Chang2006,
 abstract = {Bigtable is a distributed storage system for managing structured data that is designed to scale to a very large size: petabytes of data across thousands of commodity servers. Many projects at Google store data in Bigtable, including web indexing, Google Earth, and Google Fi- nance. These applications place very different demands on Bigtable, both in terms of data size (from URLs to web pages to satellite imagery) and latency requirements (from backend bulk processing to real-time data serving). Despite these varied demands, Bigtable has successfully provided a flexible, high-performance solution for all of these Google products. In this paper we describe the sim- ple data model provided by Bigtable, which gives clients dynamic control over data layout and format, and we de- scribe the design and implementation of Bigtable.},
 author = {Chang, Fay and Dean, Jeffrey and Ghemawat, Sanjay and Hsieh, Wilson C. and Wallach, Deborah A. and Burrows, Mike and Chandra, Tushar and Fikes, Andrew and Gruber, Robert E.},
@@ -22,6 +28,12 @@ title = {{Dynamo: Amazon’s Highly Available Key-value Store}},
 url = {http://portal.acm.org/citation.cfm?doid=1323293.1294281},
 volume = {41},
 year = {2007}
+}
+@book{Hoberman2014,
+author = {Hoberman, Steve},
+publisher = {Technics Publ.},
+title = {{Data Modeling for MongoDB}},
+year = {2014}
 }
 @misc{LakshamAvinash2010,
 abstract = {Cassandra is a distributed storage system for managing very large amounts of structured data spread out across many commodity servers, while providing highly available service with no single point of failure. Cassandra aims to run on top of an infrastructure of hundreds of nodes (possibly spread across di erent data centers). At this scale, small and large components fail continuously. The way Cassandra manages the persistent state in the face of these failures drives the reliability and scalability of the software systems relying on this service. While in many ways Cassandra resembles a database and shares many design and implementation strategies therewith, Cassandra does not support a full relational data model; instead, it provides clients with a simple data model that supports dynamic control over data layout and format. Cassandra system was designed to run on cheap commodity hardware and handle high write throughput while not sacri cing read eciency.},
@@ -50,7 +62,7 @@ year = {2010}
 }
 @article{Silberstein2008,
 abstract = {We describe PNUTS, a massively parallel and geographically distributed database system for Yahoo!’s web applications. PNUTS provides data storage organized as hashed or ordered tables, low latency for large numbers of concurrent requests including updates and queries, and novel per-record consistency guarantees. It is a hosted, centrally managed, and geographically distributed service, and utilizes automated load-balancing and failover to reduce operational complexity. The first version of the system is currently serving in production. We describe the motivation for PNUTS and the design and implementation of its table storage and replication layers, and then present experimental results.},
-author = {Silberstein, Adam and Silberstein, Adam and Cooper, Brian F. and Cooper, Brian F. and Srivastava, Utkarsh and Srivastava, Utkarsh and Vee, Erik and Vee, Erik and Yerneni, Ramana and Yerneni, Ramana and Ramakrishnan, Raghu and Ramakrishnan, Raghu},
+author = {Silberstein, Adam and Cooper, Brian F. and Srivastava, Utkarsh and Vee, Erik and Yerneni, Ramana and Ramakrishnan, Raghu},
 doi = {10.1145/1376616.1376693},
 isbn = {9781605581026},
 issn = {21508097},
@@ -60,4 +72,25 @@ pages = {765},
 title = {{PNUTS: Yahoo!'s Hosted Data Serving PLatform}},
 url = {http://portal.acm.org/citation.cfm?doid=1376616.1376693},
 year = {2008}
+}
+@misc{Unknown2012,
+abstract = {NoSQL DEFINITION: Next Generation Databases mostly addressing some of the points: being non-relational, distributed, open-source and horizontally scalable.},
+author = {Unknown},
+booktitle = {NoSQL Archive},
+isbn = {1101010101011},
+title = {{NOSQL Databases}},
+url = {http://nosql-database.org/},
+year = {2012}
+}
+@misc{MongoDBInc.2009,
+author = {{MongoDB Inc.}},
+title = {{Data Modeling Introduction}},
+url = {http://docs.mongodb.org/manual/core/data-modeling-introduction/},
+year = {2009}
+}
+@inproceedings{Suter2012,
+author = {Suter, Rico},
+booktitle = {Seminar Thesis, Rapperswil},
+title = {{MongoDB: An Introduction and performance Analysis}},
+year = {2012}
 }
