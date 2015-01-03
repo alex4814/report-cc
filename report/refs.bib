@@ -35,6 +35,18 @@ publisher = {Technics Publ.},
 title = {{Data Modeling for MongoDB}},
 year = {2014}
 }
+@inproceedings{Karger1997,
+abstract = {Wedescribe a family of caching protocols for distrib-uted networks that can be used to decrease or eliminate the occurrence of hot spots in the network. Our protocols are particularly designed for use with very large networks such as the Internet, where delays caused by hot spots can be severe, and where it is not feasible for every server to have complete information about the current state of the entire network. The protocols are easy to implement using existing network protocols such as TCP/fF’,and require very little overhead. The protocols work with local control, make efficient use of existing resources, and scale gracefully as the network grows. Our caching protocols are based on a special kind of hashing that we call consistent hashing. Roughly speaking, a consistent hash function is one which changes nr.inimaflyas the range of the function changes. Through the development of good consistent hash functions, we are able to develop caching protocols which do not require users to have a current or even consistent view of the network. We believe that consistent hash functions may eventually prove to be useful in other applications such as distributed name servers and/or quorum systems.},
+author = {Karger, David and Leightonl, Tom and Lewinl, Daniel and Lehman, Eric and Leighton, Tom and Panigrahy, Rina and Levine, Matthew and Lewin, Daniel},
+booktitle = {STOC '97: Proceedings of the twenty-ninth annual ACM symposium on Theory of computing},
+doi = {doi: 10.1145/258533.258660},
+isbn = {0-89791-888-6},
+issn = {0012821X},
+keywords = {data-partitioning,data-placement,dht,distributed-systems},
+pages = {654--663},
+title = {{Consistent hashing and random trees: distributed caching protocols for relieving hot spots on the World Wide Web}},
+year = {1997}
+}
 @misc{LakshamAvinash2010,
 abstract = {Cassandra is a distributed storage system for managing very large amounts of structured data spread out across many commodity servers, while providing highly available service with no single point of failure. Cassandra aims to run on top of an infrastructure of hundreds of nodes (possibly spread across di erent data centers). At this scale, small and large components fail continuously. The way Cassandra manages the persistent state in the face of these failures drives the reliability and scalability of the software systems relying on this service. While in many ways Cassandra resembles a database and shares many design and implementation strategies therewith, Cassandra does not support a full relational data model; instead, it provides clients with a simple data model that supports dynamic control over data layout and format. Cassandra system was designed to run on cheap commodity hardware and handle high write throughput while not sacri cing read eciency.},
 author = {{Laksham Avinash} and {Prashant Malik}},
@@ -60,6 +72,12 @@ title = {{Dremel: Interactive Analysis of Web-Scale Datasets}},
 url = {http://www.vldb2010.org/accept.htm},
 year = {2010}
 }
+@misc{MongoDBInc.2009,
+author = {{MongoDB Inc.}},
+title = {{Data Modeling Introduction}},
+url = {http://docs.mongodb.org/manual/core/data-modeling-introduction/},
+year = {2009}
+}
 @article{Silberstein2008,
 abstract = {We describe PNUTS, a massively parallel and geographically distributed database system for Yahoo!’s web applications. PNUTS provides data storage organized as hashed or ordered tables, low latency for large numbers of concurrent requests including updates and queries, and novel per-record consistency guarantees. It is a hosted, centrally managed, and geographically distributed service, and utilizes automated load-balancing and failover to reduce operational complexity. The first version of the system is currently serving in production. We describe the motivation for PNUTS and the design and implementation of its table storage and replication layers, and then present experimental results.},
 author = {Silberstein, Adam and Cooper, Brian F. and Srivastava, Utkarsh and Vee, Erik and Yerneni, Ramana and Ramakrishnan, Raghu},
@@ -73,6 +91,26 @@ title = {{PNUTS: Yahoo!'s Hosted Data Serving PLatform}},
 url = {http://portal.acm.org/citation.cfm?doid=1376616.1376693},
 year = {2008}
 }
+@article{Stoica2003,
+abstract = { A fundamental problem that confronts peer-to-peer applications is the efficient location of the node that stores a desired data item. This paper presents Chord, a distributed lookup protocol that addresses this problem. Chord provides support for just one operation: given a key, it maps the key onto a node. Data location can be easily implemented on top of Chord by associating a key with each data item, and storing the key/data pair at the node to which the key maps. Chord adapts efficiently as nodes join and leave the system, and can answer queries even if the system is continuously changing. Results from theoretical analysis and simulations show that Chord is scalable: Communication cost and the state maintained by each node scale logarithmically with the number of Chord nodes.},
+author = {Stoica, Ion and Morris, Robert and Liben-Nowell, David and Karger, David R. and Kaashoek, M. Frans and Dabek, Frank and Balakrishnan, Hari},
+doi = {10.1109/TNET.2002.808407},
+isbn = {1581134118},
+issn = {10636692},
+journal = {IEEE/ACM Transactions on Networking},
+keywords = {Distributed scalable algorithms,Lookup protocols,Peer-to-peer networks},
+pages = {17--32},
+pmid = {658598},
+title = {{Chord: A scalable peer-to-peer lookup protocol for Internet applications}},
+volume = {11},
+year = {2003}
+}
+@inproceedings{Suter2012,
+author = {Suter, Rico},
+booktitle = {Seminar Thesis, Rapperswil},
+title = {{MongoDB: An Introduction and performance Analysis}},
+year = {2012}
+}
 @misc{Unknown2012,
 abstract = {NoSQL DEFINITION: Next Generation Databases mostly addressing some of the points: being non-relational, distributed, open-source and horizontally scalable.},
 author = {Unknown},
@@ -80,17 +118,5 @@ booktitle = {NoSQL Archive},
 isbn = {1101010101011},
 title = {{NOSQL Databases}},
 url = {http://nosql-database.org/},
-year = {2012}
-}
-@misc{MongoDBInc.2009,
-author = {{MongoDB Inc.}},
-title = {{Data Modeling Introduction}},
-url = {http://docs.mongodb.org/manual/core/data-modeling-introduction/},
-year = {2009}
-}
-@inproceedings{Suter2012,
-author = {Suter, Rico},
-booktitle = {Seminar Thesis, Rapperswil},
-title = {{MongoDB: An Introduction and performance Analysis}},
 year = {2012}
 }
