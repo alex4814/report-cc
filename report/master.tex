@@ -39,27 +39,42 @@ The two solutions, manual sharding and caching,(cite) applied to classical SQL d
 In this report, we firstly examine several major NoSQL databases implemented and used in cloud vendors like Google, Amazon, and Yahoo, along with description about the main ideas of each design. Afterwards, analysis towards different NoSQL databases and we present benchmarking of top NoSQL as a visualizing comparison. Finally, a brief summarization is included in conclusion and further studies as well as challenges is discussed.
 
 \section{Major Stream}
-Currently there are approximately 150 NoSQL databases categorized by data models into a bunch of classes.\citep{Unknown2012} We review certain amount of prevailing NoSQL databases through several aspects, including data model, partitions, availability, and consistency.
+Currently there are approximately 150 NoSQL databases categorized by data models into a bunch of classes.\citep{Unknown2012} We review certain amount of prevailing NoSQL databases through several aspects, including data model, partitions, availability, and consistency. \citep{Suter2012} makes a brief introduction to MongoDB with an installation guide, and mainly focus on the performance benchmark.
 
 \subsection{Data Model}
 The major data models adopted we are going to investigate are Wide Column Store (Column Families), Document Store, and Key Value Store, whereas the minor ones (Graph Databases, Object Databases, etc.) are beyond our scope of discussion in this report.
 
 \paragraph*{Column Family Store}
-Columnar databases are almost like tabular databases. The difference is that the data are stored and retrieved column-wise unlike traditional RDBMS.
-Apache Cassandra: Casandra comes under column family. This database is designed to process the data which  are spread across different servers without a single point failure. It is used by many companies such as digg, Cisco , eBay etc,.
+Columnar databases are almost like tabular databases. The difference is that the data are  column-wise stored and retrieved.
+
+Apache Cassandra: Casandra comes under column family. This database is designed to process the data which  are spread across different servers without a single point failure. It is used by many companies such as digg, Cisco , eBay.
+
+Columns in Cassandra are grouped together very much similar to what happens in the Bigtable\citep{Chang2006} system. Cassandra exposes two kinds of columns families, Simple and Super column families. Super column families can be visualized as a column family within a column family.\citep{LakshamAvinash2010}
 
 \paragraph*{Document Store}
-A document-oriented database eschews the table-based relational database structure. MongoDB is one of them. It stores business subjects in the minimal number of documents instead of breaking it up into relational structures\citep{Hoberman2014} in favor of JSON-like formats with dynamic schemas.\citep{Suter2012} This flexibility facilitates the mapping of documents to an entity or an object in MongoDB, in which there are two tools to allow applications to represent relationships between data: references and embedded documents.\citep{MongoDBInc.2009}
+A document-oriented database eschews the table-based relational database structure. MongoDB is the well-known member of the family. In general, it stores business subjects in the minimal number of documents instead of breaking it up into relational structures\citep{Hoberman2014} in favor of JSON-like formats with dynamic schemas.\citep{Suter2012} This flexibility facilitates the mapping of documents to an entity or an object in MongoDB, in which there are two tools to allow applications to represent relationships between data: \textit{references} and \textit{embedded documents}.\citep{MongoDBInc.2009}
 
 \paragraph*{Key Value Store}
 
 
-
 \subsection{Availability}
-\paragraph*{replication} 
-\paragraph*{load balancing} 
+As server downtime implies lost revenue, high availability is the key factor to sustain services. To achieve the goal, various methods has emerged.
+
+\paragraph*{Replication}
+Replication is one way to ensure consistency between redundant resources,  to improve reliability, fault-tolerance, or accessibility.
+
+There are two types of replication supported in MongoDB: \textit{master-slave} and \textit{replica sets}.\citep{Suter2012} The latter works the same as the former, except that it is possible to elect a new master if the original master went down.
+
+\paragraph*{Load Balancing} 
+
+\paragraph*{Failure Detection}
+
 
 \subsection{Partition}
+\paragraph*{Sharding}
+Sharding is a method for storing data across multiple machines. (http://docs.mongodb.org/manual/core/sharding-introduction/)
+
+Another feature supported by MongoDB is automatic sharding [7]. Using this feature the data can be partitioned over multiple nodes. The administrator only has to define a sharding key for each collection which defines how to partition the contained docu- ments. In such an environment, the clients connect to a special master node called mongos process which analyses the query and redirects it to the appropriate node or nodes. To avoid data losses, every logical node can consist of multiple physical servers which act as a replica set. Using this node infra- structure it is also possible to use Map/Reduce [8] to work on the available data set having a very good performance.
 
 \subsection{Consistency}
 
@@ -68,6 +83,11 @@ A document-oriented database eschews the table-based relational database structu
 \section{Conclusion}
 CAP consistency, availability, partition
 only 2 of 3
+
+\subsection{Drawback}
+Transactions are not directly supported by MongoDB. Though there are two workarounds: atomic operations and two-phase commits. Atomic operations allow performing multiple operations in one call. An example is findAndModify [9] or the inc [10] operator used in updates.
+There are several other limitations. For example, if you use the 32-bit version of MongoDB the data set is limited to a size of 2.5 gigabytes [11]. MongoDB does not support full single server durability which means you need multiple replications to avoid data losses if one server suffers a power loss or crash [12]. Another drawback is the fact that it uses much more storage space for the same data then for example PostgreSQL. Because – as opposed to relational databases – every document can have different keys [13] the whole document has to be stored, not only the values. That’s why it is recommended to use short key names.
+
 
 \section*{Help}
 \subsection*{1}
