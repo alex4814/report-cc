@@ -10,6 +10,18 @@ url = {http://portal.acm.org/citation.cfm?id=1855851$\backslash$nhttps://www.use
 volume = {8},
 year = {2010}
 }
+@inproceedings{Burrows2006,
+abstract = {We describe our experiences with the Chubby lock service, which is intended to provide coarse-grained locking as well as reliable (though low-volume) storage for a loosely-coupled distributed system. Chubby provides an interface much like a distributed file system with advisory locks, but the design emphasis is on availability and reliability, as opposed to high performance. Many instances of the service have been used for over a year, with several of them each handling a few tens of thousands of clients concurrently. The paper describes the initial design and expected use, compares it with actual use, and explains how the design had to be modified to accommodate the differences.},
+author = {Burrows, Mike},
+booktitle = {OSDI '06: Proceedings of the 7th symposium on Operating systems design and implementation SE - OSDI '06},
+file = {::},
+isbn = {1-931971-47-1},
+keywords = {consensus,distributed-systems,fault-tolerance},
+pages = {335--350},
+title = {{The Chubby lock service for loosely-coupled distributed systems}},
+url = {citeulike-article-id:6502774$\backslash$nhttp://portal.acm.org/citation.cfm?id=1298487},
+year = {2006}
+}
 @article{Stoica2003,
 abstract = { A fundamental problem that confronts peer-to-peer applications is the efficient location of the node that stores a desired data item. This paper presents Chord, a distributed lookup protocol that addresses this problem. Chord provides support for just one operation: given a key, it maps the key onto a node. Data location can be easily implemented on top of Chord by associating a key with each data item, and storing the key/data pair at the node to which the key maps. Chord adapts efficiently as nodes join and leave the system, and can answer queries even if the system is continuously changing. Results from theoretical analysis and simulations show that Chord is scalable: Communication cost and the state maintained by each node scale logarithmically with the number of Chord nodes.},
 author = {Stoica, Ion and Morris, Robert and Liben-Nowell, David and Karger, David R. and Kaashoek, M. Frans and Dabek, Frank and Balakrishnan, Hari},
@@ -45,7 +57,8 @@ year = {2012}
 @misc{MongoDBInc.2009,
 author = {{MongoDB Inc.}},
 title = {{Data Modeling Introduction}},
-url = {http://docs.mongodb.org/manual/core/data-modeling-introduction/},
+url = {http://docs.mongodb.org/manual/core/data-modeling-introduction}
+note = {\url{http://docs.mongodb.org/manual/core/data-modeling-introduction}},
 year = {2009}
 }
 @book{Hoberman2014,
@@ -56,17 +69,19 @@ year = {2014}
 }
 @misc{Unknown2012,
 abstract = {NoSQL DEFINITION: Next Generation Databases mostly addressing some of the points: being non-relational, distributed, open-source and horizontally scalable.},
-author = {Unknown},
+author = {NoSQL},
 booktitle = {NoSQL Archive},
 isbn = {1101010101011},
 title = {{NOSQL Databases}},
 url = {http://nosql-database.org/},
+note = {\url{http://nosql-database.org/}},
 year = {2012}
 }
 @misc{Bain2009,
 author = {Bain, Tony},
 title = {{Is the Relational Database Doomed?}},
 url = {http://readwrite.com/2009/02/12/is-the-relational-database-doomed},
+note = {\url{http://readwrite.com/2009/02/12/is-the-relational-database-doomed}}
 year = {2009}
 }
 @inproceedings{DeCandia2007,
@@ -136,5 +151,6 @@ year = {2010}
 author = {Browne, Julian},
 title = {{Brewer's CAP Theorem}},
 url = {http://www.julianbrowne.com/article/viewer/brewers-cap-theorem},
+note = {\url{http://www.julianbrowne.com/article/viewer/brewers-cap-theorem}},
 year = {2009}
 }
